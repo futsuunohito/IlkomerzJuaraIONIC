@@ -1,0 +1,33 @@
+<ion-content no-bounce>
+  <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+    <ion-slide *ngFor="let slide of slides; let last = last">
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <img [src]="slide.image" class="slide-image" />
+      <p [innerHTML]="slide.description"></p>
+      
+    </ion-slide>
+    <!-- <ion-slide>
+      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
+      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE4_TITLE' | translate }}</h2>
+      
+      
+    </ion-slide> -->
+    
+  </ion-slides>
+  <ion-footer no-border>
+    <ion-buttons end *ngIf="showSkip">
+      <button ion-button clear (click)="startApp()" color="primary">
+        Skip
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end *ngIf="!showSkip">
+      <button ion-button clear (click)="startApp()">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-footer>
+  
+</ion-content>
